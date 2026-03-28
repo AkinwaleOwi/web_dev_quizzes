@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>True or False Quiz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+    .question {
+      margin: 20px 0;
+    }
+    img {
+      max-width: 300px;
+      height: auto;
+      margin-bottom: 10px;
+    }
+    button {
+      margin: 5px;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+    #result {
+      font-size: 20px;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+    #review {
+      margin-top: 20px;
+      text-align: left;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .wrong {
+      color: red;
+      margin-bottom: 15px;
+    }
+    .selected {
+      background-color: lightblue;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>True or False Quiz</h1>
+
+  <div id="quiz"></div>
+
+  <div>
+    <button onclick="prevQuestion()">Previous</button>
+    <button onclick="nextQuestion()">Next</button>
+  </div>
+
+  <div>
+    <button onclick="submitQuiz()">Submit Quiz</button>
+  </div>
+
+  <div id="result"></div>
+  <button id="retryBtn" onclick="retryQuiz()" style="display:none;">Retry Quiz</button>
+  <div id="review"></div>
+
+  <script>
+    const questions = [
+      {
+        text: "The Earth is flat.",
+        answer: false,
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/The_Earth_seen_from_Apollo_17.jpg/300px-The_Earth_seen_from_Apollo_17.jpg"
+      },
+      {
+        text: "JavaScript is a programming language.",
+        answer: true,
+        image: "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png"
+      },
+      {
+        text: "The sun rises in the west.",
+        answer: false,
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Sunrise_over_mountains.jpg/300px-Sunrise_over_mountains.jpg"
+      },
+      {
+        text: "Water boils at 100°C.",
+        answer: true,
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Boiling_water.jpg/300px-Boiling_water.jpg"
+      },
+      {
+        text: "Humans can breathe underwater without equipment.",
+        answer: false,
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Scuba_diver.jpg/300px-Scuba_diver.jpg"
+      }
+    ];
+
+    let currentQuestion = 0;
+    let userAnswers = new Array(questions.length).fill(null);
+
+    function loadQuestion() {
+      const q = questions[currentQuestion];
+      const quizDiv = document.getElementById("quiz");
+
+      quizDiv.innerHTML = `
+        <div class="question">
+          <img src="${q.image}" alt="Question image">
+          <p>${currentQuestion + 1}. ${q.text}</p>
+          <button id="trueBtn" onclick="answer(true)">True</button>
+          <button id="falseBtn" onclick="answer(false)">False</button>
+        </div>
+      `;
+
+      // Highlight selected answer
+      if (userAnswers[currentQuestion] !== null) {
+        if (userAnswers[currentQuestion] === true) {
+          document.getElementById("trueBtn").classList.add("selected");
+        } else {
+          document.getElementById("falseBtn").classList.add("selected");
+        }
+      }
+    }
+
+    function answer(value) {
+      userAnswers[currentQuestion] = value;
+      loadQuestion();
+    }
+
+    function nextQuestion() {
+      if (currentQuestion < questions.length - 1) {
+        currentQuestion++;
+        loadQuestion();
+      }
+    }
+
+    function prevQuestion() {
+      if (currentQuestion > 0) {
+        currentQuestion--;
+        loadQuestion();
+      }
+    }
+
+    function submitQuiz() {
+      let score = 0;
+      let reviewHTML = "<h2>Review:</h2>";
+
+      questions.forEach((q, i) => {
+        if (userAnswers[i] === q.answer) {
+          score++;
+        } else {
+          reviewHTML += `
+            <div class="wrong">
+              <p><strong>Question ${i + 1}:</strong> ${q.text}</p>
+              <p>Your answer: ${userAnswers[i] === null ? "Not answered" : userAnswers[i]}</p>
+              <p>Correct answer: ${q.answer}</p>
+            </div>
+          `;
+        }
+      });
+
+      document.getElementById("result").textContent =
+        `You scored ${score} out of ${questions.length}`;
+
+      document.getElementById("review").innerHTML = reviewHTML;
+
+      document.getElementById("retryBtn").style.display = "inline-block";
+    }
+
+    function retryQuiz() {
+      currentQuestion = 0;
+      userAnswers = new Array(questions.length).fill(null);
+
+      document.getElementById("result").textContent = "";
+      document.getElementById("review").innerHTML = "";
+      document.getElementById("retryBtn").style.display = "none";
+
+      loadQuestion();
+    }
+
+    loadQuestion();
+  </script>
+
+</body>
+</html>
