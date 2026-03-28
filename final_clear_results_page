@@ -54,7 +54,7 @@
 </head>
 <body>
 
-  <div id="timer">Time: 30</div>
+  <div id="timer">Time: 45</div>
 
   <h1>True or False Quiz</h1>
 
@@ -207,7 +207,7 @@
     function retryQuiz() {
       currentQuestion = 0;
       userAnswers = new Array(questions.length).fill(null);
-      timeLeft = 30;
+      timeLeft = 45;
       quizSubmitted = false;
 
       // Show UI again
@@ -219,7 +219,7 @@
       document.getElementById("result").textContent = "";
       document.getElementById("review").innerHTML = "";
       document.getElementById("retryBtn").style.display = "none";
-      document.getElementById("timer").textContent = "Time: 30";
+      document.getElementById("timer").textContent = "Time: 45";
 
       clearInterval(timerInterval);
       startTimer();
