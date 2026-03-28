@@ -59,11 +59,11 @@
 
   <script>
     const questions = [
-      { text: "The Earth is flat.", answer: false },
-      { text: "JavaScript is a programming language.", answer: true },
-      { text: "The sun rises in the west.", answer: false },
-      { text: "Water boils at 100°C.", answer: true },
-      { text: "Humans can breathe underwater without equipment.", answer: false }
+      { text: "You obviously subscribed to the Akinwale Owi yt channel right?", answer: true },
+      { text: "Are you still awake for more code?", answer: true },
+      { text: "Does Tuesday come before Monday?", answer: false },
+      { text: "Is January the third month of the year?", answer: false },
+      { text: "Is Greene Aeration going to be the coolest and most challenging company to work for?", answer: true}
     ];
 
     let currentQuestion = 0;
