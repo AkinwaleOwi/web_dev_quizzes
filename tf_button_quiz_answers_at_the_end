@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>True or False Quiz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+    .question {
+      margin: 20px 0;
+    }
+    button {
+      margin: 5px;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+    #result {
+      font-size: 20px;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+    #review {
+      margin-top: 20px;
+      text-align: left;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .wrong {
+      color: red;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>True or False Quiz</h1>
+
+  <div id="quiz"></div>
+
+  <button onclick="submitQuiz()">Submit</button>
+
+  <div id="result"></div>
+  <div id="review"></div>
+
+  <script>
+    const questions = [
+      { text: "Is Akinwale Owi your favorite web developer?", answer: true },
+      { text: "Would it be wise to subscribe to his youtube then?", answer: true },
+      { text: "Is there a better comic book than Grimken:Woodsy?", answer: false },
+      { text: "Is Madden going to keep grossing more than Football:11 vs 11 next year?", answer: false },
+      { text: "Is Women's Basketball:5 vs 5 going to blow 2k out of the water?", answer: true }
+    ];
+
+    const userAnswers = new Array(questions.length).fill(null);
+    const quizDiv = document.getElementById("quiz");
+
+    questions.forEach((q, index) => {
+      const div = document.createElement("div");
+      div.className = "question";
+
+      div.innerHTML = `
+        <p>${index + 1}. ${q.text}</p>
+        <button onclick="answer(${index}, true)">True</button>
+        <button onclick="answer(${index}, false)">False</button>
+        <span id="status-${index}"></span>
+      `;
+
+      quizDiv.appendChild(div);
+    });
+
+    function answer(index, value) {
+      userAnswers[index] = value;
+      document.getElementById(`status-${index}`).textContent = "Answered";
+    }
+
+    function submitQuiz() {
+      let score = 0;
+      let reviewHTML = "<h2>Review:</h2>";
+
+      questions.forEach((q, i) => {
+        if (userAnswers[i] === q.answer) {
+          score++;
+        } else {
+          reviewHTML += `
+            <div class="wrong">
+              <p><strong>Question ${i + 1}:</strong> ${q.text}</p>
+              <p>Your answer: ${userAnswers[i] === null ? "Not answered" : userAnswers[i]}</p>
+              <p>Correct answer: ${q.answer}</p>
+            </div>
+          `;
+        }
+      });
+
+      document.getElementById("result").textContent =
+        `You scored ${score} out of ${questions.length}`;
+
+      document.getElementById("review").innerHTML = reviewHTML;
+    }
+  </script>
+
+</body>
+</html>
