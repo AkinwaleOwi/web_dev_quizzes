@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>True or False Quiz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+    .question {
+      margin: 20px 0;
+    }
+    button {
+      margin: 5px;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+    #result {
+      font-size: 20px;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+    #review {
+      margin-top: 20px;
+      text-align: left;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .wrong {
+      color: red;
+      margin-bottom: 15px;
+    }
+    .selected {
+      background-color: lightblue;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>True or False Quiz</h1>
+
+  <div id="quiz"></div>
+
+  <div>
+    <button onclick="prevQuestion()">Previous</button>
+    <button onclick="nextQuestion()">Next</button>
+  </div>
+
+  <div>
+    <button onclick="submitQuiz()">Submit Quiz</button>
+  </div>
+
+  <div id="result"></div>
+  <button id="retryBtn" onclick="retryQuiz()" style="display:none;">Retry Quiz</button>
+  <div id="review"></div>
+
+  <script>
+    const questions = [
+      { text: "The Earth is flat.", answer: false },
+      { text: "JavaScript is a programming language.", answer: true },
+      { text: "The sun rises in the west.", answer: false },
+      { text: "Water boils at 100°C.", answer: true },
+      { text: "Humans can breathe underwater without equipment.", answer: false }
+    ];
+
+    let currentQuestion = 0;
+    let userAnswers = new Array(questions.length).fill(null);
+
+    function loadQuestion() {
+      const q = questions[currentQuestion];
+      const quizDiv = document.getElementById("quiz");
+
+      quizDiv.innerHTML = `
+        <div class="question">
+          <p>${currentQuestion + 1}. ${q.text}</p>
+          <button id="trueBtn" onclick="answer(true)">True</button>
+          <button id="falseBtn" onclick="answer(false)">False</button>
+        </div>
+      `;
+
+      // Highlight selected answer
+      if (userAnswers[currentQuestion] !== null) {
+        if (userAnswers[currentQuestion] === true) {
+          document.getElementById("trueBtn").classList.add("selected");
+        } else {
+          document.getElementById("falseBtn").classList.add("selected");
+        }
+      }
+    }
+
+    function answer(value) {
+      userAnswers[currentQuestion] = value;
+      loadQuestion();
+    }
+
+    function nextQuestion() {
+      if (currentQuestion < questions.length - 1) {
+        currentQuestion++;
+        loadQuestion();
+      }
+    }
+
+    function prevQuestion() {
+      if (currentQuestion > 0) {
+        currentQuestion--;
+        loadQuestion();
+      }
+    }
+
+    function submitQuiz() {
+      let score = 0;
+      let reviewHTML = "<h2>Review:</h2>";
+
+      questions.forEach((q, i) => {
+        if (userAnswers[i] === q.answer) {
+          score++;
+        } else {
+          reviewHTML += `
+            <div class="wrong">
+              <p><strong>Question ${i + 1}:</strong> ${q.text}</p>
+              <p>Your answer: ${userAnswers[i] === null ? "Not answered" : userAnswers[i]}</p>
+              <p>Correct answer: ${q.answer}</p>
+            </div>
+          `;
+        }
+      });
+
+      document.getElementById("result").textContent =
+        `You scored ${score} out of ${questions.length}`;
+
+      document.getElementById("review").innerHTML = reviewHTML;
+
+      // Show retry button
+      document.getElementById("retryBtn").style.display = "inline-block";
+    }
+
+    function retryQuiz() {
+      // Reset everything
+      currentQuestion = 0;
+      userAnswers = new Array(questions.length).fill(null);
+
+      document.getElementById("result").textContent = "";
+      document.getElementById("review").innerHTML = "";
+      document.getElementById("retryBtn").style.display = "none";
+
+      loadQuestion();
+    }
+
+    // Load first question
+    loadQuestion();
+  </script>
+
+</body>
+</html>
