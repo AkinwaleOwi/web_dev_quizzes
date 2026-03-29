@@ -54,7 +54,7 @@
 </head>
 <body>
 
-  <div id="timer">Time: 180</div>
+  <div id="timer">Time: 45</div>
 
   <h1>True or False Quiz</h1>
 
@@ -85,33 +85,33 @@
       {
         text: "The Earth is flat.",
         answer: false,
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/The_Earth_seen_from_Apollo_17.jpg/300px-The_Earth_seen_from_Apollo_17.jpg"
+        image: "pic_1.png"
       },
       {
         text: "JavaScript is a programming language.",
         answer: true,
-        image: "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png"
+        image: "pic_2.png"
       },
       {
         text: "The sun rises in the west.",
         answer: false,
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Sunrise_over_mountains.jpg/300px-Sunrise_over_mountains.jpg"
+        image: "pic_3.png"
       },
       {
         text: "Water boils at 100°C.",
         answer: true,
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Boiling_water.jpg/300px-Boiling_water.jpg"
+        image: "pic_4.png"
       },
       {
         text: "Humans can breathe underwater without equipment.",
         answer: false,
-        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Scuba_diver.jpg/300px-Scuba_diver.jpg"
+        image: "pic_5.png"
       }
     ];
 
     let currentQuestion = 0;
     let userAnswers = new Array(questions.length).fill(null);
-    let timeLeft = 180;
+    let timeLeft = 45;
     let timerInterval;
     let quizSubmitted = false;
 
@@ -217,7 +217,7 @@
     function retryQuiz() {
       currentQuestion = 0;
       userAnswers = new Array(questions.length).fill(null);
-      timeLeft = 180;
+      timeLeft = 45;
       quizSubmitted = false;
 
       shuffleArray(questions); // 🔀 randomize again
@@ -229,7 +229,7 @@
       document.getElementById("result").textContent = "";
       document.getElementById("review").innerHTML = "";
       document.getElementById("retryBtn").style.display = "none";
-      document.getElementById("timer").textContent = "Time: 3:00";
+      document.getElementById("timer").textContent = "Time: 0:45";
 
       clearInterval(timerInterval);
       startTimer();
