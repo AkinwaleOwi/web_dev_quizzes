@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>True or False Quiz</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div id="timer">Time: 3:00</div>
+
+  <h1>True or False Quiz</h1>
+
+  <div id="quiz"></div>
+
+  <div id="navButtons">
+    <button onclick="prevQuestion()">Previous</button>
+    <button onclick="nextQuestion()">Next</button>
+  </div>
+
+  <div id="submitContainer">
+    <button onclick="submitQuiz()">Submit Quiz</button>
+  </div>
+
+  <div id="result"></div>
+  <button id="retryBtn" onclick="retryQuiz()" style="display:none;">Retry Quiz</button>
+  <div id="review"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
