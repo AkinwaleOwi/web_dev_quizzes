@@ -1,0 +1,166 @@
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+
+const questions = [
+  {
+    text: "The Earth is flat.",
+    answer: false,
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/The_Earth_seen_from_Apollo_17.jpg/300px-The_Earth_seen_from_Apollo_17.jpg"
+  },
+  {
+    text: "JavaScript is a programming language.",
+    answer: true,
+    image: "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png"
+  },
+  {
+    text: "The sun rises in the west.",
+    answer: false,
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Sunrise_over_mountains.jpg/300px-Sunrise_over_mountains.jpg"
+  },
+  {
+    text: "Water boils at 100°C.",
+    answer: true,
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Boiling_water.jpg/300px-Boiling_water.jpg"
+  },
+  {
+    text: "Humans can breathe underwater without equipment.",
+    answer: false,
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Scuba_diver.jpg/300px-Scuba_diver.jpg"
+  }
+];
+
+let currentQuestion = 0;
+let userAnswers = new Array(questions.length).fill(null);
+let timeLeft = 180;
+let timerInterval;
+let quizSubmitted = false;
+
+function startTimer() {
+  timerInterval = setInterval(() => {
+    timeLeft--;
+
+    let minutes = Math.floor(timeLeft / 60);
+    let seconds = timeLeft % 60;
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+    document.getElementById("timer").textContent =
+      `Time: ${minutes}:${seconds}`;
+
+    if (timeLeft <= 0) {
+      clearInterval(timerInterval);
+      submitQuiz();
+    }
+  }, 1000);
+}
+
+function loadQuestion() {
+  const q = questions[currentQuestion];
+  const quizDiv = document.getElementById("quiz");
+
+  quizDiv.innerHTML = `
+    <div class="question">
+      <img src="${q.image}">
+      <p>${currentQuestion + 1}. ${q.text}</p>
+      <button id="trueBtn" onclick="answer(true)">True</button>
+      <button id="falseBtn" onclick="answer(false)">False</button>
+    </div>
+  `;
+
+  if (userAnswers[currentQuestion] !== null) {
+    if (userAnswers[currentQuestion]) {
+      document.getElementById("trueBtn").classList.add("selected");
+    } else {
+      document.getElementById("falseBtn").classList.add("selected");
+    }
+  }
+}
+
+function answer(value) {
+  userAnswers[currentQuestion] = value;
+  loadQuestion();
+}
+
+function nextQuestion() {
+  if (currentQuestion < questions.length - 1) {
+    currentQuestion++;
+    loadQuestion();
+  }
+}
+
+function prevQuestion() {
+  if (currentQuestion > 0) {
+    currentQuestion--;
+    loadQuestion();
+  }
+}
+
+function submitQuiz() {
+  if (quizSubmitted) return;
+  quizSubmitted = true;
+
+  clearInterval(timerInterval);
+
+  let score = 0;
+  let reviewHTML = "<h2>Review:</h2>";
+
+  questions.forEach((q, i) => {
+    if (userAnswers[i] === q.answer) {
+      score++;
+    } else {
+      reviewHTML += `
+        <div class="wrong">
+          <p><strong>Question ${i + 1}:</strong> ${q.text}</p>
+          <p>Your answer: ${userAnswers[i] === null ? "Not answered" : userAnswers[i]}</p>
+          <p>Correct answer: ${q.answer}</p>
+        </div>
+      `;
+    }
+  });
+
+  document.getElementById("quiz").style.display = "none";
+  document.getElementById("navButtons").style.display = "none";
+  document.getElementById("submitContainer").style.display = "none";
+
+  document.getElementById("result").innerHTML =
+    `You scored ${score} out of ${questions.length}`;
+
+  document.getElementById("review").innerHTML = reviewHTML;
+
+  document.getElementById("retryBtn").style.display = "inline-block";
+
+  const body = document.body;
+  body.insertBefore(document.getElementById("result"), body.children[1]);
+  body.insertBefore(document.getElementById("retryBtn"), body.children[2]);
+  body.insertBefore(document.getElementById("review"), body.children[3]);
+}
+
+function retryQuiz() {
+  currentQuestion = 0;
+  userAnswers = new Array(questions.length).fill(null);
+  timeLeft = 180;
+  quizSubmitted = false;
+
+  shuffleArray(questions);
+
+  document.getElementById("quiz").style.display = "block";
+  document.getElementById("navButtons").style.display = "block";
+  document.getElementById("submitContainer").style.display = "block";
+
+  document.getElementById("result").textContent = "";
+  document.getElementById("review").innerHTML = "";
+  document.getElementById("retryBtn").style.display = "none";
+  document.getElementById("timer").textContent = "Time: 3:00";
+
+  clearInterval(timerInterval);
+  startTimer();
+  loadQuestion();
+}
+
+// Start quiz
+shuffleArray(questions);
+loadQuestion();
+startTimer();
