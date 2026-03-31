@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>True or False Quiz</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="css_tf_timed_randomized_quiz.css">
 </head>
 <body>
 
@@ -26,6 +26,6 @@
   <button id="retryBtn" onclick="retryQuiz()" style="display:none;">Retry Quiz</button>
   <div id="review"></div>
 
-  <script src="script.js"></script>
+  <script src="javascript_tf_timed_randomized_quiz.js"></script>
 </body>
 </html>
