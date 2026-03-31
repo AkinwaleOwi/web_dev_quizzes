@@ -9,27 +9,27 @@ const questions = [
   {
     text: "The Earth is flat.",
     answer: false,
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/The_Earth_seen_from_Apollo_17.jpg/300px-The_Earth_seen_from_Apollo_17.jpg"
+    image: "pic_a.png"
   },
   {
     text: "JavaScript is a programming language.",
     answer: true,
-    image: "https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png"
+    image: "pic_b.png"
   },
   {
     text: "The sun rises in the west.",
     answer: false,
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Sunrise_over_mountains.jpg/300px-Sunrise_over_mountains.jpg"
+    image: "pic_c.png"
   },
   {
     text: "Water boils at 100°C.",
     answer: true,
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Boiling_water.jpg/300px-Boiling_water.jpg"
+    image: "pic_d.png"
   },
   {
     text: "Humans can breathe underwater without equipment.",
     answer: false,
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Scuba_diver.jpg/300px-Scuba_diver.jpg"
+    image: "pic_e.png"
   }
 ];
 
