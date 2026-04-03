@@ -1,37 +1,51 @@
-function shuffleArray(array) {
-  for (let i = array.length - 1; i > 0; i--) {
+function shuffleArray(array) 
+{//beginning of function shuffleArray(array) 
+    
+  for (let i = array.length - 1; i > 0; i--) 
+  {//beginning of for (let i = array.length - 1; i > 0; i--) 
+      
     const j = Math.floor(Math.random() * (i + 1));
     [array[i], array[j]] = [array[j], array[i]];
-  }
-}
+      
+  }//end of for (let i = array.length - 1; i > 0; i--) 
+    
+}//end of function shuffleArray(array) 
 
-const questions = [
-  {
+const questions = 
+[//beginning of const questions = 
+    
+  {//beginning of q0
+      
     text: "The Earth is flat.",
     answer: false,
     image: "pic_a.png"
-  },
-  {
+  },//end of q0
+    
+  {//beginning of q1
     text: "JavaScript is a programming language.",
     answer: true,
     image: "pic_b.png"
-  },
-  {
+  },//end of q1
+    
+  {//beginning of q2
     text: "The sun rises in the west.",
     answer: false,
     image: "pic_c.png"
-  },
-  {
+  },//end of q2
+    
+  {//beginning of q3
     text: "Water boils at 100°C.",
     answer: true,
     image: "pic_d.png"
-  },
-  {
+  },//end of q3
+    
+  {//beginning of q4
     text: "Humans can breathe underwater without equipment.",
     answer: false,
     image: "pic_e.png"
-  }
-];
+  }//end of q4
+    
+];//end of const questions = 
 
 let currentQuestion = 0;
 let userAnswers = new Array(questions.length).fill(null);
@@ -39,8 +53,12 @@ let timeLeft = 180;
 let timerInterval;
 let quizSubmitted = false;
 
-function startTimer() {
-  timerInterval = setInterval(() => {
+function startTimer() 
+{//beginning of function startTimer() 
+    
+  timerInterval = setInterval(() => 
+    {//beginning of timerInterval = setInterval(() => 
+        
     timeLeft--;
 
     let minutes = Math.floor(timeLeft / 60);
@@ -50,12 +68,15 @@ function startTimer() {
     document.getElementById("timer").textContent =
       `Time: ${minutes}:${seconds}`;
 
-    if (timeLeft <= 0) {
+    if (timeLeft <= 0) 
+    {//beginning of if (timeLeft <= 0) 
       clearInterval(timerInterval);
       submitQuiz();
-    }
-  }, 1000);
-}
+    }//end of if (timeLeft <= 0) 
+        
+  }, 1000);//end of timerInterval = setInterval(() => 
+    
+}//end of function startTimer() 
 
 function loadQuestion() 
 {//beginning of loadQuestion()
@@ -172,7 +193,9 @@ function submitQuiz()
     
 }//end of function submitQuiz()
 
-function retryQuiz() {
+function retryQuiz() 
+{//beginning of function retryQuiz() 
+    
   currentQuestion = 0;
   userAnswers = new Array(questions.length).fill(null);
   timeLeft = 180;
@@ -192,7 +215,8 @@ function retryQuiz() {
   clearInterval(timerInterval);
   startTimer();
   loadQuestion();
-}
+    
+}// end of function retryQuiz() 
 
 // Start quiz
 shuffleArray(questions);
