@@ -88,26 +88,43 @@ function loadQuestion()
     
 }//end of loadQuestion()
 
-function answer(value) {
+function answer(value) 
+{//beginning of function answer(value) 
+    
   userAnswers[currentQuestion] = value;
   loadQuestion();
-}
+    
+}//end of function answer(value) 
 
-function nextQuestion() {
-  if (currentQuestion < questions.length - 1) {
+function nextQuestion() 
+{//beginning of nextQuestion() 
+    
+  if (currentQuestion < questions.length - 1) 
+  {//beginning of if (currentQuestion < questions.length - 1) 
+    
     currentQuestion++;
     loadQuestion();
-  }
-}
+      
+  }//end of if (currentQuestion < questions.length - 1) 
+    
+}//end of nextQuestion() 
 
-function prevQuestion() {
-  if (currentQuestion > 0) {
+function prevQuestion() 
+{//beginning of function prevQuestion() 
+    
+  if (currentQuestion > 0) 
+  {//beginning of if (currentQuestion > 0) 
+      
     currentQuestion--;
     loadQuestion();
-  }
-}
+      
+  }//end of if (currentQuestion > 0) 
+    
+}//end of function prevQuestion() 
 
-function submitQuiz() {
+function submitQuiz() 
+{//beginning of function submitQuiz()
+    
   if (quizSubmitted) return;
   quizSubmitted = true;
 
@@ -116,10 +133,16 @@ function submitQuiz() {
   let score = 0;
   let reviewHTML = "<h2>Review:</h2>";
 
-  questions.forEach((q, i) => {
-    if (userAnswers[i] === q.answer) {
+  questions.forEach((q, i) => 
+ {//beginning of questions.forEach((q, i) =>
+          
+    if (userAnswers[i] === q.answer) 
+    {//beginning of if (userAnswers[i] === q.answer) 
       score++;
-    } else {
+    }//end of  if (userAnswers[i] === q.answer) 
+        
+    else 
+    {//beginning of else
       reviewHTML += `
         <div class="wrong">
           <p><strong>Question ${i + 1}:</strong> ${q.text}</p>
@@ -127,8 +150,9 @@ function submitQuiz() {
           <p>Correct answer: ${q.answer}</p>
         </div>
       `;
-    }
-  });
+    }//end of else
+          
+  });// end of questions.forEach((q, i) =>
 
   document.getElementById("quiz").style.display = "none";
   document.getElementById("navButtons").style.display = "none";
@@ -145,7 +169,8 @@ function submitQuiz() {
   body.insertBefore(document.getElementById("result"), body.children[1]);
   body.insertBefore(document.getElementById("retryBtn"), body.children[2]);
   body.insertBefore(document.getElementById("review"), body.children[3]);
-}
+    
+}//end of function submitQuiz()
 
 function retryQuiz() {
   currentQuestion = 0;
