@@ -1,0 +1,937 @@
+//~~~~~~~~absolute beginning of javascript_easy.js script~~~~
+
+function shuffleArray(array) 
+{//beginning of function shuffleArray(array) 
+    
+  for (let i = array.length - 1; i > 0; i--) 
+  {//beginning of for (let i = array.length - 1; i > 0; i--) 
+      
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+      
+  }//end of for (let i = array.length - 1; i > 0; i--) 
+    
+}//end of function shuffleArray(array) 
+
+const questions = 
+[//beginning of const questions = 
+
+    //finito
+  {//beginning of q0, actually 13
+      
+    text: "The scientific name for domestic cats is Felis catus.",
+    answer: true,
+    image: "pic_13_scientific_name.png"
+  },//end of q0
+
+    //finito
+  {//beginning of q1, actually 38
+    text: "Cats can drink seawater safely.",
+    answer: false,
+    image: "pic_38_seawater.png"
+  },//end of q1, actually 38
+
+    //finito  
+  {//beginning of q2 ~~ actually 78
+    text: "Cats can taste spicy food the same way humans do.",
+    answer: false,
+    image: "pic_78_spicy_food.png"
+  },//end of q2
+
+    //finito  
+  {//beginning of q3 ~~~~~ actually #17
+    text: " Cats can make over 100 different sounds",
+    answer: true,
+    image: "pic_17_100_sounds.png"
+  },//end of q3
+
+   //finito   
+  {//beginning of q4 ~~~~~ actually #80
+    text: " Cats wag their tails when they are happy, like dogs.",
+    answer: true,
+    image: "pic_80_wag_tails.png"
+  },//end of q4
+
+     //finito
+     {//beginning of q5 ~~~~~ actually #50
+    text: " Cats can hear higher-pitched sounds than dogs.",
+    answer: true,
+    image: "pic_50_higher_pitches.png"
+  },//end of q5
+
+      //finito   
+     {//beginning of q6 ~~~~~ actually #76
+    text: " A cat’s hearing is better than a human’s.",
+    answer: true,
+    image: "pic_76_hear_better.png"
+  },//end of q6
+    
+     //finito
+    {//beginning of q7 ~~~~~ actually 55
+    text: " Cats have retractable claws.",
+    answer: true,
+    image: "pic_55_retractable_claws.png"
+  },//end of q7
+
+    //finito
+    {//beginning of q8 ~~~~~ actually 77
+    text: " Puss in Boots is about a heroic cat.",
+    answer: true,
+    image: "pic_77_puss_in_boots.png"
+  },//end of q8
+
+    //finito
+    {//beginning of q10 ~~~~~ actually 65
+    text: " Cats can dream.",
+    answer: true,
+    image: "pic_65_dream.png"
+  },//end of q10
+        
+    //finito
+  {//beginning of q11, actually 38
+    text: "Cats sleep about 16 hours a day.",
+    answer: true,
+    image: "pic_9_sleep.png"
+  },//end of q11, actually 38
+
+    //finito
+  {//beginning of q12 ~~ actually 78
+    text: "A group of cats is called a clowder.",
+    answer: true,
+    image: "pic_5_clowder.png"
+  },//end of q12
+
+   //finito 
+  {//beginning of q13 ~~~~~ actually #7
+    text: " Cats have whiskers on their legs.",
+    answer: true,
+    image: "pic_7_leg_whisker.png"
+  },//end of q13
+
+    //finito
+  {//beginning of q14 ~~~~~ actually #80
+    text: " Dogs can make more sounds than cats.",
+    answer: false,
+    image: "pic_18_dog_sounds.png"
+  },//end of q14
+
+    //finito
+     {//beginning of q15 ~~~~~ actually #14
+    text: " Cats use their whiskers to measure spaces",
+    answer: true,
+    image: "pic_14_whisker_space.png"
+  },//end of q15
+
+    //finito
+     {//beginning of q16 ~~~~~ actually #63
+    text: " Cats can get hairballs.",
+    answer: true,
+    image: "pic_63_hairballs.png"
+  },//end of q16
+    
+    //finito
+    {//beginning of q17 ~~~~~ 
+    text: " Cats have 230 bones in their bodies.",
+    answer: true,
+    image: "37_bones_230.png"
+  },//end of q17
+
+     //finito   
+    {//beginning of q18 ~~~~~ actually 12
+    text: " Cats can taste sweetness.",
+    answer: false,
+    image: "pic_12_sweetness.png"
+  },//end of q18
+
+    //finito
+    {//beginning of q19 ~~~~~ actually 
+    text: " A cat’s whiskers should never be trimmed. ",
+    answer: true,
+    image: "pic_28_whisker_trim.png"
+  },//end of q19
+
+    //finito
+    {//beginning of q20 ~~~~~ actually 65
+    text: " All hairless cats are completely bald.",
+    answer: true,
+    image: "pic_64_hairless.png"
+  },//end of q20
+    
+
+//~~~~~~~~~~~~~~~q21 to q40~~~~~~~~~~~~~
+
+    
+//hecho
+{//beginning of q21, actually 38
+    text: "Egypt once had laws protecting cats.",
+    answer: true,
+    image: "pic_79_egypt.png"
+  },//end of q21, actually 38
+
+   //hecho 
+  {//beginning of q22 ~~ actually 25
+    text: "Cats can jump up to six times their body length.",
+    answer: true,
+    image: "pic_25_jump.png"
+  },//end of q22
+
+   //hecho   
+  {//beginning of q23 ~~~~~ actually #21
+    text: "  Cats always land on their feet. ",
+    answer: false,
+    image: "pic_21_land_feet.png"
+  },//end of q23
+
+   //hecho   
+  {//beginning of q24 ~~~~~ actually #43
+    text: " A cat’s purr can help heal bones",
+    answer: true,
+    image: "pic_43_purr_heal.png"
+  },//end of q24
+
+    //done
+     {//beginning of q25 ~~~~~ actually #50
+    text: " Maine Coons are one of the largest cat breeds.",
+    answer: true,
+    image: "pic_31_maine_coon.png"
+  },//end of q25
+
+    //done
+     {//beginning of q26 ~~~~~ actually 44
+    text: " Cats have poor night vision.",
+    answer: false,
+    image: "pic_44_night_vision.png"
+  },//end of q26
+
+    
+     //done
+    {//beginning of q27 ~~~~~ actually 10
+    text: " Cats can see in complete darkness.",
+    answer: false,
+    image: "pic_10_complete_darkness.png"
+  },//end of q27
+
+    //done
+    {//beginning of q28 ~~~~~ actually 19
+    text: " Cats have collarbones just like humans.",
+    answer: true,
+    image: "pic_19_collarbone.png"
+  },//end of q28
+
+    //done
+    {//beginning of q29 ~~~~~ actually 30
+    text: " All cats meow at other cats.",
+    answer: false,
+    image: "pic_30_meow.png"
+  },//end of q29
+
+    //done
+    {//beginning of q30 ~~~~~ actually 1
+    text: "  Cats have five toes on their front paws.",
+    answer: true,
+    image: "pic1_five_paws.png"
+  },//end of q30
+        
+
+    //done
+  {//beginning of q31, actually 32
+    text: "Siamese cats are always white. ",
+    answer: false,
+    image: "pic_32_white_siamese.png"
+  },//end of q31, actually 38
+
+    
+    //done
+  {//beginning of q32 ~~ actually 26
+    text: "A kitten’s eyes are always blue at birth.",
+    answer: true,
+    image: "pic_26_blue_eyes.png"
+  },//end of q32
+
+    //done
+  {//beginning of q33 ~~~~~ actually #24
+    text: " Black cats are considered good luck everywhere in the world. ",
+    answer: false,
+    image: "pic_24_black_luck.png"
+  },//end of q33
+
+    //done
+  {//beginning of q34 ~~~~~ actually #2
+    text: " Cats can rotate their ears 180 degrees.",
+    answer: false,
+    image: "pic_2_ears_rotate.png"
+  },//end of q34
+
+    //done
+     {//beginning of q35 ~~~~~ actually #42
+    text: " Cats groom themselves to stay cool.",
+    answer: true,
+    image: "pic_42_cool_groom.png"
+  },//end of q35
+
+    //done
+     {//beginning of q36 ~~~~~ actually #6 
+    text: " Cats purr only when they are happy",
+    answer: false,
+    image: "pic_6_purr_happy.png"
+  },//end of q36
+    
+    //done
+    {//beginning of q37 ~~~~~ actually 22
+    text: " The first cloned pet was a cat.",
+    answer: true,
+    image: "pic_22_clone.png"
+  },//end of q37
+
+    //done
+    {//beginning of q38 ~~~~~ actually 36
+    text: " Whiskers help cats detect changes in air currents.",
+    answer: true,
+    image: "pic_36_whisker_currents.png"
+  },//end of q38
+
+    //done
+    {//beginning of q39 ~~~~~ really 39 too
+    text: "The oldest known pet cat was found in Cyprus. ",
+    answer: true,
+    image: "pic_39_oldest_cyprus.png"
+  },//end of q39
+
+    //done
+    {//beginning of q40 ~~~~~ actually 8
+    text: " The average cat has 32 muscles in each ear.",
+    answer: true,
+    image: "pic_8_ear_muscles.png"
+  },//end of q40
+    
+
+    
+//~~~~~~~~~~~~~~~~~~~~41 to 60~~~~~~~~~~~~~~~~~~~~~~
+
+    //fin
+{//beginning of q41 , really
+    text: "A cat’s nose print is unique like a human fingerprint.",
+    answer: true,
+    image: "q11_noseprint.png"
+  },//end of q41, actually 38
+
+    //fin
+  {//beginning of q42 , really
+    text: " Cats can recognize their names. ",
+    answer: true,
+    image: "pic_40_names.png"
+  },//end of q42
+
+    //fin
+  {//beginning of q43 , really 15
+    text: "  All calico cats are female. ",
+    answer: false,
+    image: "pic_15_all_calico.png"
+  },//end of q43
+
+    //fin
+  {//beginning of q44 , really 49
+    text: " The The Lion King is about domestic house cats.",
+    answer: false,
+    image: "pic_49_lion_king.png"
+  },//end of q44
+
+    //fin
+     {//beginning of q45 , really 47
+    text: " A group of kittens is called a kindle.",
+    answer: true,
+    image: "pic_47_kitten_kindle.png"
+  },//end of q45
+
+        
+      //fin
+     {//beginning of q46 , really 35
+    text: " Cats can move their jaws side to side.",
+    answer: false,
+    image: " pic_35_jaws.png"
+  },//end of q46
+
+    
+   //fin
+    {//beginning of q47 , really 62
+    text: " Alice's Adventures in Wonderland features the Cheshire Cat.",
+    answer: true,
+    image: "pic_62_alice.png"
+  },//end of q47
+
+    //fin
+    {//beginning of q48 , really 59
+    text: " Japan has a “Cat Island.” ",
+    answer: true,
+    image: "pic_59_japan.png"
+  },//end of q48
+
+
+     //fin
+    {//beginning of q49 , really  70
+    text: "  Tom and Jerry features a cat chasing a mouse.",
+    answer: true,
+    image: "pic_70_tom_and_jerry.png"
+  },//end of q49
+
+    //fin
+    {//beginning of q50 , really 33
+    text: " Cats can run faster than most humans.",
+    answer: true,
+    image: "pic_33_run_faster.png"
+  },//end of q50 
+        
+
+    //fin
+  {//beginning of q51 , really 97
+    text: "Cats have retractable whiskers. ",
+    answer: false,
+    image: "pic_97_retractable_whiskers.png"
+  },//end of q51
+
+    
+    //fin
+  {//beginning of q52 , really q41
+    text: "All orange cats are male.",
+    answer: false,
+    image: "pic_41_orange_male.png"
+  },//end of q52
+
+
+   //fin
+  {//beginning of q53 , really 48
+    text: " Cats can see ultraviolet light. ",
+    answer: true,
+    image: "pic_48_ultraviolet.png"
+  },//end of q53
+
+   //fin 
+  {//beginning of q54, really 74
+    text: " Stray lets players control a cat.",
+    answer: true,
+    image: "pic_74_stray.png"
+  },//end of q54
+
+    //fin
+     {//beginning of q55, really 29
+    text: "Cats have a third eyelid.",
+    answer: true,
+    image: "pic_29_third_eyelid.png"
+  },//end of q55
+
+    //fin
+     {//beginning of q56, really 90
+    text: " Scotland has a cat mayor in one of its towns.",
+    answer: true,
+    image: "pic_90_scotland.png"
+  },//end of q56
+    
+    //fin
+    {//beginning of q57, really 85
+    text: "Cats can recognize their owner’s voice.",
+    answer: true,
+    image: "pic_85_voice.png"
+  },//end of q57
+
+    //fin
+    {//beginning of q58, really 61
+    text: "  A cat’s tongue is smooth. ",
+    answer: false,
+    image: "pic_61_smooth_tongue.png"
+  },//end of q58
+
+    //fin
+    {//beginning of q59, really 67
+    text: "Cats use their tails to communicate mood. ",
+    answer: true,
+    image: "pic_67_tail_mood.png"
+  },//end of q59
+
+
+    //fin
+    {//beginning of q60, really
+    text: " Garfield the cat loves Mondays.",
+    answer: false,
+    image: "pic_52_garfield.png"
+  },//end of q60
+
+//~~~~~~~~~~~~~~61 through 81~~~~~~~~~~~~~~~~~~~~~~
+
+    //ate
+{//beginning of q61 , really 96
+    text: "Coraline includes a mysterious talking cat.",
+    answer: true,
+    image: "pic_96_coraline.png"
+  },//end of q61
+
+    //ate
+  {//beginning of q62 , really 84
+    text: " Purina makes cat food.",
+    answer: true,
+    image: "pic_84_purina.png"
+  },//end of q62
+
+   //ate    
+  {//beginning of q63 , really 45
+    text: "  The world’s oldest known cat lived to be 38 years old. ",
+    answer: true,
+    image: "pic_45_oldest_cat.png"
+  },//end of q63
+
+    //ate
+  {//beginning of q64 , really 
+    text: " Lionel Messi is nicknamed after a type of cat.",
+    answer: false,
+    image: "pic_57_messi.png"
+  },//end of q64
+
+     //ate 
+     {//beginning of q65 , really 4
+    text: " Kittens are born blind.",
+    answer: true,
+    image: "pic_4_blind.png"
+  },//end of q65
+
+      //ate
+     {//beginning of q66 , really 16
+    text: " Cats sweat through their paw pads.",
+    answer: true,
+    image: "pic_16_sweat.png"
+  },//end of q66
+
+    
+     //ate
+    {//beginning of q67 , really 73
+    text: "Cats always purr at the same volume.",
+    answer: false,
+    image: "pic_73_purr_volume.png"
+  },//end of q67
+
+    //ate
+    {//beginning of q68 , really 87
+    text: " Cats have fewer bones than humans.",
+    answer: false,
+    image: "pic_87_more_bones.png"
+  },//end of q68
+
+
+     //ate
+    {//beginning of q69 , really 20
+    text: "A cat’s heart beats faster than a human’s heart.",
+    answer: true,
+    image: "pic_20_faster_heart.png"
+  },//end of q69
+
+    //ate
+    {//beginning of q70 , really 69
+    text: " Cats were brought to the Americas by European settlers.",
+    answer: true,
+    image: "pic_69_america.png"
+  },//end of q70
+        
+
+   //ate 
+  {//beginning of q71 , really 68
+    text: "A cat’s normal body temperature is higher than a human’s. ",
+    answer: true,
+    image: "pic_68_higher_temp.png"
+  },//end of q71
+
+    
+   //ate 
+  {//beginning of q72 , really 
+    text: "Cats were worshipped in ancient Egypt.",
+    answer: true,
+    image: "pic_23_egyptian_worship.png"
+  },//end of q72
+
+
+   //ate
+  {//beginning of q73 , really 99
+    text: " Cats were domesticated over 9,000 years ago. ",
+    answer: true,
+    image: "pic_99_domesticated.png"
+  },//end of q73
+
+   //ate
+  {//beginning of q74, really 92
+    text: " The film 'Breakfast at Tiffany's' features a cat named Cat. ",
+    answer: true,
+    image: "pic_92_tiffanys.png"
+  },//end of q74
+
+    //ate
+     {//beginning of q75, really 93
+    text: "Cats can become left-pawed or right-pawed",
+    answer: true,
+    image: "pic_93_lr_pawed.png"
+  },//end of q75
+
+
+     //ate
+     {//beginning of q76, really 51
+    text: " Cats can suffer from obesity.",
+    answer: true,
+    image: "pic_89_obesity.png"
+  },//end of q76
+    
+    //ate
+    {//beginning of q77, really 94
+    text: " Cat Fanciers' Association is a registry for pedigreed cats.",
+    answer: true,
+    image: "pic_94_fanciers.png"
+  },//end of q77
+
+    //ate
+    {//beginning of q78, really 58
+    text: "Cats can see more colors than humans.",
+    answer: false,
+    image: "pic_71_more_colors.png"
+  },//end of q78
+
+     //ate    
+    {//beginning of q79, really 34
+    text: "A cat’s tail helps with balance. ",
+    answer: true,
+    image: "pic_34_tail_balance.png"
+  },//end of q79
+
+
+    //ate
+    {//beginning of q80, really 60
+    text: " Cats can rotate their back feet to help them climb down trees.",
+    answer: true,
+    image: "pic_60_rotate_down.png"
+  },//end of q80
+
+//=====================81 - 98========================
+
+
+//finito
+{//beginning of q81 , really 46
+    text: "Cats have flexible spines.",
+    answer: true,
+    image: "pic_46_flexible.png"
+  },//end of q81
+
+
+//finito
+  {//beginning of q82 , really 56.
+    text: "  A cat’s sense of smell is stronger than a human’s",
+    answer: true,
+    image: "pic_56_smell.png"
+  },//end of q82
+
+
+  //finito     
+  {//beginning of q83 , really 54
+    text: "Istanbul is famous for its large population of stray cats. ",
+    answer: true,
+    image: "pic_54_istanbul_stray.png"
+  },//end of q83
+
+    //finito
+  {//beginning of q84 , really 72
+    text: " Rome has protected stray cats living among ancient ruins.",
+    answer: true,
+    image: "pic_72_rome.png"
+  },//end of q84
+
+     //finito
+     {//beginning of q85 , really 91
+    text: " Cats have a strong sense of balance.",
+    answer: true,
+    image: "pic_91_balance.png"
+  },//end of q85
+
+     //finito 
+     {//beginning of q86 , really 86
+    text: " A cat’s pupils can change size.",
+    answer: true,
+    image: "pic_81_pupils.png"
+  },//end of q86
+
+    
+    //finito 
+    {//beginning of q87 , really 86
+    text: " The Ernest Hemingway Home and Museum is famous for its six-toed cats. ",
+    answer: true,
+    image: "pic_86_hemingway.png"
+  },//end of q87
+
+    //finito
+    {//beginning of q88 , really 98
+    text: "Aoshima is known as a “Cat Island.” ",
+    answer: true,
+    image: "pic_98_cat_island.png"
+  },//end of q88
+
+
+    //finito
+    {//beginning of q89 , really 82
+    text: "Hello Kitty is a cartoon cat character.",
+    answer: true,
+    image: "pic_82_hello_kitty.png"
+  },//end of q89
+
+    //finito
+    {//beginning of q90 , really 83
+    text: " Cats use scent glands on their faces to mark territory.",
+    answer: true,
+    image: "pic_83_terrority.png"
+  },//end of q90
+        
+
+   //finito
+  {//beginning of q91 , really 95
+    text: "Cats can recognize themselves in mirrors.",
+    answer: false,
+    image: "pic_95_mirror.png"
+  },//end of q91
+
+    
+   //finito
+  {//beginning of q92 , really 88
+    text: "The Cat in the Hat was written by Dr. Seuss.",
+    answer: true,
+    image: "pic_88_dr_seus.png"
+  },//end of q92
+
+
+   //finito
+  {//beginning of q93 , really 66
+    text: " Cats is based on a Broadway musical. ",
+    answer: true,
+    image: "pic_66_Broadway.png"
+  },//end of q93
+
+   //finito
+  {//beginning of q94, really 75
+    text: " Cats can squeeze through spaces as small as their heads.",
+    answer: true,
+    image: "pic_75_head_space.png"
+  },//end of q94
+
+    //finito
+     {//beginning of q95, really 
+    text: "Cats can climb down trees headfirst easily.",
+    answer: false,
+    image: "pic_53_climb_down.png"
+  },//end of q95
+
+
+     
+     {//beginning of q96, really 
+    text: " All cats are lactose intolerant as adults.",
+    answer: false,
+    image: "pic_51_lactose_adults.png"
+  },//end of q76
+    
+    
+    {//beginning of q97, really 
+    text: " Cats are strictly carnivores.",
+    answer: true,
+    image: "pic_94_fanciers.png"
+  },//end of q97
+
+    
+    {//beginning of q98, really 98
+    text: "  Cats can get sunburned. ",
+    answer: true,
+    image: "pic_58_sunburned.png"
+  },//end of q98
+
+
+//~~~~~~~~~~~~last one~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~    
+    
+  {//beginning of q99~~~ actually 3
+    text: "All cats hate water.",
+    answer: false,
+    image: "pic_3_hate_water.png"
+  },//end of q99
+
+{//beginning of q100~~~ actually 100
+    text: "Cats are not mammals.",
+    answer: false,
+    image: "pic_100_mammals.png"
+  }//end of q99
+    
+];//end of const questions = 
+
+let currentQuestion = 0;
+let userAnswers = new Array(questions.length).fill(null);
+let timeLeft = 180;
+let timerInterval;
+let quizSubmitted = false;
+
+function startTimer() 
+{//beginning of function startTimer() 
+    
+  timerInterval = setInterval(() => 
+    {//beginning of timerInterval = setInterval(() => 
+        
+    timeLeft--;
+
+    let minutes = Math.floor(timeLeft / 60);
+    let seconds = timeLeft % 60;
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+    document.getElementById("timer").textContent =
+      `Time: ${minutes}:${seconds}`;
+
+    if (timeLeft <= 0) 
+    {//beginning of if (timeLeft <= 0) 
+      clearInterval(timerInterval);
+      submitQuiz();
+    }//end of if (timeLeft <= 0) 
+        
+  }, 1000);//end of timerInterval = setInterval(() => 
+    
+}//end of function startTimer() 
+
+function loadQuestion() 
+{//beginning of loadQuestion()
+    
+  const q = questions[currentQuestion];
+  const quizDiv = document.getElementById("quiz");
+
+  quizDiv.innerHTML = `
+    <div class="question">
+      <img src="${q.image}">
+      <p>${currentQuestion + 1}. ${q.text}</p>
+      <button id="trueBtn" onclick="answer(true)">True</button>
+      <button id="falseBtn" onclick="answer(false)">False</button>
+    </div>
+  `;
+
+  if (userAnswers[currentQuestion] !== null) 
+  {//beginning of if (userAnswers[currentQuestion] !== null)
+      
+    if (userAnswers[currentQuestion]) 
+    {//beginning of if (userAnswers[currentQuestion])
+      document.getElementById("trueBtn").classList.add("selected");
+    } //end of if (userAnswers[currentQuestion])
+    else 
+    {//beginning of else 
+      document.getElementById("falseBtn").classList.add("selected");
+    }//end of else
+      
+  }//end of if (userAnswers[currentQuestion] !== null)
+    
+}//end of loadQuestion()
+
+function answer(value) 
+{//beginning of function answer(value) 
+    
+  userAnswers[currentQuestion] = value;
+  loadQuestion();
+    
+}//end of function answer(value) 
+
+function nextQuestion() 
+{//beginning of nextQuestion() 
+    
+  if (currentQuestion < questions.length - 1) 
+  {//beginning of if (currentQuestion < questions.length - 1) 
+    
+    currentQuestion++;
+    loadQuestion();
+      
+  }//end of if (currentQuestion < questions.length - 1) 
+    
+}//end of nextQuestion() 
+
+function prevQuestion() 
+{//beginning of function prevQuestion() 
+    
+  if (currentQuestion > 0) 
+  {//beginning of if (currentQuestion > 0) 
+      
+    currentQuestion--;
+    loadQuestion();
+      
+  }//end of if (currentQuestion > 0) 
+    
+}//end of function prevQuestion() 
+
+function submitQuiz() 
+{//beginning of function submitQuiz()
+    
+  if (quizSubmitted) return;
+  quizSubmitted = true;
+
+  clearInterval(timerInterval);
+
+  let score = 0;
+  let reviewHTML = "<h2>Review:</h2>";
+
+  questions.forEach((q, i) => 
+ {//beginning of questions.forEach((q, i) =>
+          
+    if (userAnswers[i] === q.answer) 
+    {//beginning of if (userAnswers[i] === q.answer) 
+      score++;
+    }//end of  if (userAnswers[i] === q.answer) 
+        
+    else 
+    {//beginning of else
+      reviewHTML += `
+        <div class="wrong">
+          <p><strong>Question ${i + 1}:</strong> ${q.text}</p>
+          <p>Your answer: ${userAnswers[i] === null ? "Not answered" : userAnswers[i]}</p>
+          <p>Correct answer: ${q.answer}</p>
+        </div>
+      `;
+    }//end of else
+          
+  });// end of questions.forEach((q, i) =>
+
+  document.getElementById("quiz").style.display = "none";
+  document.getElementById("navButtons").style.display = "none";
+  document.getElementById("submitContainer").style.display = "none";
+
+  document.getElementById("result").innerHTML =
+    `You scored ${score} out of ${questions.length}`;
+
+  document.getElementById("review").innerHTML = reviewHTML;
+
+  document.getElementById("retryBtn").style.display = "inline-block";
+
+  const body = document.body;
+  body.insertBefore(document.getElementById("result"), body.children[1]);
+  body.insertBefore(document.getElementById("retryBtn"), body.children[2]);
+  body.insertBefore(document.getElementById("review"), body.children[3]);
+    
+}//end of function submitQuiz()
+
+function retryQuiz() 
+{//beginning of function retryQuiz() 
+    
+  currentQuestion = 0;
+  userAnswers = new Array(questions.length).fill(null);
+  timeLeft = 180;
+  quizSubmitted = false;
+
+  shuffleArray(questions);
+
+  document.getElementById("quiz").style.display = "block";
+  document.getElementById("navButtons").style.display = "block";
+  document.getElementById("submitContainer").style.display = "block";
+
+  document.getElementById("result").textContent = "";
+  document.getElementById("review").innerHTML = "";
+  document.getElementById("retryBtn").style.display = "none";
+  document.getElementById("timer").textContent = "Time: 3:00";
+
+  clearInterval(timerInterval);
+  startTimer();
+  loadQuestion();
+    
+}// end of function retryQuiz() 
+
+// Start quiz
+shuffleArray(questions);
+loadQuestion();
+startTimer();
+
+//~~~~~~~~absolute end of javascript_easy.js script~~~~
