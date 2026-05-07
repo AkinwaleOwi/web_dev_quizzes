@@ -14,7 +14,7 @@
       top: 20px;
       right: 50%;
       transform: translateX(50%);
-      font-size: 20px;
+      font-size: 26px;
       font-weight: bold;
       color: #ffffff;
       font-family: Garamond;
@@ -27,6 +27,8 @@
       color: #ffffff;
       font-size: 26px;
       font-family: Garamond;
+      font-weight: bold;
+
 
     }
 
@@ -43,6 +45,8 @@
       padding: 10px 30px;
       cursor: pointer;
       font-family: Garamond;
+      font-size: 26px;  
+        
 
     }
 
