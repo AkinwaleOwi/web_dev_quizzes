@@ -2,7 +2,7 @@
 
     body 
     {
-      font-family: Arial, sans-serif;
+      font-family: Garamond;
       text-align: center;
       padding: 20px;
       background-color: #418FDE;
@@ -17,6 +17,8 @@
       font-size: 20px;
       font-weight: bold;
       color: #ffffff;
+      font-family: Garamond;
+
     }
     
     .question 
@@ -24,6 +26,8 @@
       margin: 20px 0;
       color: #ffffff;
       font-size: 26px;
+      font-family: Garamond;
+
     }
 
     img 
@@ -38,36 +42,48 @@
       margin: 5px;
       padding: 10px 30px;
       cursor: pointer;
+      font-family: Garamond;
+
     }
 
     #trueBtn
     {
      background-color: #2C5234; 
      color: #ffffff;
+     font-family: Garamond;
+
     }
 
     #trueBtn.selected
     {
         background-color: #007bff;
         color: #000000;
+        font-family: Garamond;
+
     }
 
     #falseBtn
     {
       background-color: #BB133E;
       color: #ffffff;
+      font-family: Garamond;
+
     }
 
     #falseBtn.selected
     {
         background-color: #007bff;
         color: #000000;
+        font-family: Garamond;
+
     }
 
     #submitBtn
     {
         background-color: #154406;
         color:#ffffff;
+        font-family: Garamond;
+
     }    
 
     #result 
@@ -75,6 +91,8 @@
       font-size: 22px;
       margin-top: 20px;
       font-weight: bold;
+      font-family: Garamond;
+
     }
 
     #review 
@@ -85,22 +103,29 @@
       margin-left: auto;
       margin-right: auto;
       color: #ffffff;
+      font-family: Garamond;
+  
     }
 
     .wrong 
     {
       color: #ffffff;
       margin-bottom: 15px;
+      font-family: Garamond;
+  
     }
 
     .selected 
     {
       background-color: lightblue;
+      font-family: Garamond;
+
     }
 
     h1
     {
-        color:#FFCD00;
+        color:#FFFF00;
+        font-family: Garamond;
     }
 
 
