@@ -94,6 +94,7 @@ The completed Cat Trivia Quiz includes:
 | V1 | Basic quiz functionality |
 | V2 | Added countdown timer |
 | V3 | Added cat images |
+| V4| Questions randomized |
 | Final | Complete polished quiz |
 
 ---
@@ -130,19 +131,11 @@ Through this project, I learned:
 - How HTML, CSS, and JavaScript work together
 - How to manipulate webpage elements using JavaScript
 - How to create and manage timers
-- How to organize code using comments and functions
-- How to progressively enhance a web application
-
----
-
-# 📜 License
-
-This project was created for educational purposes as part of a web development course.
 
 ---
 
 ## Author
 
-**[Your Name]**
+**Akinwale "Wally" Owi**
 
 Web Development Coursework • Cat Trivia Quiz Project
